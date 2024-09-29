@@ -1,0 +1,11 @@
+[
+  { "label": "Tidak Sekolah", "value": "Tidak Sekolah" },
+  { "label": "SD", "value": "SD" },
+  { "label": "SLTP sederajat", "value": "SLTP sederajat" },
+  { "label": "SLTA sederajat", "value": "SLTA sederajat" },
+  { "label": "D1 - D3", "value": "D1 - D3" },
+  { "label": "D4", "value": "D4" },
+  { "label": "S1", "value": "S1" },
+  { "label": "S2", "value": "S2" },
+  { "label": "S3", "value": "S3" }
+]

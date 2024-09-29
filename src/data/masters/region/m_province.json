@@ -1,0 +1,342 @@
+[
+  {
+    "province_id": "12",
+    "province_name": "SUMATERA UTARA",   
+    "latitude": 1.835385799407959,
+    "longitude": 96.49652862548828,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"
+  },
+  {
+    "province_id": "13",
+    "province_name": "SUMATERA BARAT",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"  
+  },
+  {
+    "province_id": "14",
+    "province_name": "RIAU",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"
+  },
+  {
+    "province_id": "15",
+    "province_name": "JAMBI",  
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "16",
+    "province_name": "SUMATERA SELATAN",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"
+  },
+  {
+    "province_id": "17",
+    "province_name": "BENGKULU",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "18",
+    "province_name": "LAMPUNG",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "19",
+    "province_name": "KEPULAUAN BANGKA BELITUNG",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "21",
+    "province_name": "KEPULAUAN RIAU",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "31",
+    "province_name": "DKI JAKARTA",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "32",
+    "province_name": "JAWA BARAT",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "33",
+    "province_name": "JAWA TENGAH",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "34",
+    "province_name": "DAERAH ISTIMEWA YOGYAKARTA",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "35",
+    "province_name": "JAWA TIMUR",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "36",
+    "province_name": "BANTEN",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "51",
+    "province_name": "BALI",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "52",
+    "province_name": "NUSA TENGGARA BARAT",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "53",
+    "province_name": "NUSA TENGGARA TIMUR",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "61",
+    "province_name": "KALIMANTAN BARAT",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"
+  },
+  {
+    "province_id": "62",
+    "province_name": "KALIMANTAN TENGAH",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "63",
+    "province_name": "KALIMANTAN SELATAN",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "64",
+    "province_name": "KALIMANTAN TIMUR",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "65",
+    "province_name": "KALIMANTAN UTARA",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "71",
+    "province_name": "SULAWESI UTARA",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "72",
+    "province_name": "SULAWESI TENGAH",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "73",
+    "province_name": "SULAWESI SELATAN",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "74",
+    "province_name": "SULAWESI TENGGARA",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "75",
+    "province_name": "GORONTALO",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "76",
+    "province_name": "SULAWESI BARAT",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "81",
+    "province_name": "MALUKU",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "82",
+    "province_name": "MALUKU UTARA",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "91",
+    "province_name": "PAPUA",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "92",
+    "province_name": "PAPUA BARAT",    
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "8/11/2021 15:56:13",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  },
+  {
+    "province_id": "11",
+    "province_name": "ACEH",    
+    "latitude": 4.043259620666504,
+    "longitude": 94.40380096435547,
+    "created_at": "8/11/2021 15:56:13",
+    "updated_at": "19/11/2021 08:13:40",
+    "created_by": "SYS",
+    "updated_by": "SYS"    
+  }
+]

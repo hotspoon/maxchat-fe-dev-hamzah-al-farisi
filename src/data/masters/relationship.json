@@ -1,0 +1,7 @@
+[
+  { "label": "Ayah", "value": "0" },
+  { "label": "Ibu", "value": "1" },
+  { "label": "Saudara", "value": "2" },
+  { "label": "Suami/Istri", "value": "3" },
+  { "label": "Anak", "value": "4" }
+]

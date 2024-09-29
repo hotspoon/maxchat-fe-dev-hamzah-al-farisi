@@ -1,0 +1,10 @@
+[
+  { "label": "Islam", "value": "01" },
+  { "label": "Kristen (Protestan)", "value": "02" },
+  { "label": "Katolik", "value": "03" },
+  { "label": "Hindu", "value": "04" },
+  { "label": "Buddha", "value": "05" },
+  { "label": "Konghucu", "value": "06" },
+  { "label": "Penghayat", "value": "07" },
+  { "label": "Lainnya", "value": "08" }
+]

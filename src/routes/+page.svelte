@@ -4,11 +4,11 @@
   import * as Dialog from '$lib/components/ui/dialog';
   import Button from '$lib/components/ui/button/button.svelte';
   import Label from '$lib/components/ui/label/label.svelte';
+  import Input from '$lib/components/ui/input/input.svelte';
   import { SquareUserRound, Plus, EllipsisVertical, Check, X } from 'lucide-svelte';
 
   // Import patients data
   import patients from '../data/data-patient.json';
-  import Input from '$lib/components/ui/input/input.svelte';
 
   let dialogOpen = false;
   let searchParams = {
@@ -59,10 +59,12 @@
       class="rounded border p-2"
       on:click={() => (dialogOpen = true)}
     />
-    <Button class="bg-sky-500 hover:bg-sky-600">
-      <Plus class="mr-2 h-4 w-4" />
-      Tambah
-    </Button>
+    <a href="/tambah">
+      <Button class="bg-sky-500 hover:bg-sky-600">
+        <Plus class="mr-2 h-4 w-4" />
+        Tambah
+      </Button>
+    </a>
   </div>
 </div>
 
