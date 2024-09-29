@@ -1,17 +1,26 @@
-# create-svelte
+## Pre-requisites
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+- Node.js or Bun
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Installation of Bun
 
 ```bash
-# create a new project in the current directory
-bun create svelte@latest
 
-# create a new project in my-app
-bun create svelte@latest my-app
+# MacOS & Linux
+curl -fsSL https://bun.sh/install | bash
+
+or
+
+# Windows
+powershell -c "irm bun.sh/install.ps1 | iex"
+
+```
+
+## Installation
+
+```bash
+
+bun install
 ```
 
 ## Developing
