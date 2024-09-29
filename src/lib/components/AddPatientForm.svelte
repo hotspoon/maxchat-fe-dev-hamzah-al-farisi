@@ -6,36 +6,58 @@
   import Switch from '$lib/components/ui/switch/switch.svelte';
   import { ArrowLeft, Printer, Upload, Save, X, Plus } from 'lucide-svelte';
 
+  import { MasterData, ListRegion } from '../../data/masters';
+
   let patient = {
     nama: '',
     tempat_lahir: '',
     tgl_lahir: '',
     alamat_ktp: {
-      provinsi: 'JAWA TIMUR',
+      provinsi: '',
       kota_kab: '',
       kecamatan: '',
       desa: '',
       alamat: 'JI Diponegoro Gg.III'
     },
     alamat_domisili: {
-      provinsi: 'JAWA TIMUR',
+      provinsi: '',
       kota_kab: '',
       kecamatan: '',
       desa: '',
       alamat: 'JI Diponegoro Gg.III'
     },
-    provinsi_ktp: 'JAWA TIMUR',
+    provinsi_ktp: '',
     kota_kab_ktp: '',
     kecamatan_ktp: '',
     desa_ktp: '',
-    alamat_sama_dengan_ktp: true,
-    hubungan_keluarga_terdekat: 'Kakek',
+    alamat_sama_dengan_ktp: false,
+    hubungan_keluarga_terdekat: '',
     nama_keluarga_terdekat: '',
     anggota_keluarga: [
-      { nama: 'Faris', hubungan: 'Saudara' },
-      { nama: 'Hamzah', hubungan: 'Kakek' }
+      { nama: 'Faris', hubungan: 'saudara' },
+      { nama: 'Hamzah', hubungan: 'kakek' }
     ]
   };
+
+  // Reactive statements to filter options based on selected values
+  $: filteredRegenciesKTP = ListRegion.regency.filter(
+    (regency) => regency.province_id === patient.alamat_ktp.provinsi
+  );
+  $: filteredCitiesKTP = ListRegion.city.filter(
+    (city) => city.regency_id === patient.alamat_ktp.kota_kab
+  );
+
+  $: filteredRegenciesDomisili = ListRegion.regency.filter(
+    (regency) => regency.province_id === patient.alamat_domisili.provinsi
+  );
+  $: filteredCitiesDomisili = ListRegion.city.filter(
+    (city) => city.regency_id === patient.alamat_domisili.kota_kab
+  );
+
+  // Reactive statement to update "Alamat Domisili" when the switch is toggled
+  $: if (patient.alamat_sama_dengan_ktp) {
+    patient.alamat_domisili = { ...patient.alamat_ktp };
+  }
 
   function handleSubmit() {
     console.log('Patient data:', patient);
@@ -125,9 +147,9 @@
       <div class="lg:col-span-4">
         <select class="w-full rounded border p-2" bind:value={patient.alamat_ktp.provinsi}>
           <option value="" disabled selected>Pilih Provinsi</option>
-          <option value="JAWA TIMUR">JAWA TIMUR</option>
-          <option value="JAWA TENGAH">JAWA TENGAH</option>
-          <option value="JAWA BARAT">JAWA BARAT</option>
+          {#each ListRegion.province as provinsi}
+            <option value={provinsi.value}>{provinsi.label}</option>
+          {/each}
         </select>
       </div>
 
@@ -138,11 +160,15 @@
       </div>
 
       <div class="lg:col-span-4">
-        <select class="w-full rounded border p-2" bind:value={patient.alamat_ktp.kota_kab}>
+        <select
+          class="w-full rounded border p-2"
+          bind:value={patient.alamat_ktp.kota_kab}
+          disabled={!patient.alamat_ktp.provinsi}
+        >
           <option value="" disabled selected>Pilih Kota</option>
-          <option value="SURABAYA">SURABAYA</option>
-          <option value="SIDOARJO">SIDOARJO</option>
-          <option value="GRESIK">GRESIK</option>
+          {#each filteredRegenciesKTP as regency}
+            <option value={regency.value}>{regency.label}</option>
+          {/each}
         </select>
       </div>
     </div>
@@ -156,12 +182,12 @@
           id="kecamatan"
           class="w-full rounded border p-2"
           bind:value={patient.alamat_ktp.kecamatan}
+          disabled={!patient.alamat_ktp.kota_kab}
         >
           <option value="" disabled selected>Pilih Kecamatan</option>
-          <option value="Kecamatan 1">Kecamatan 1</option>
-          <option value="Kecamatan 2">Kecamatan 2</option>
-          <option value="Kecamatan 3">Kecamatan 3</option>
-          <!-- Add more options as needed -->
+          {#each filteredCitiesKTP as city}
+            <option value={city.value}>{city.label}</option>
+          {/each}
         </select>
       </div>
 
@@ -169,20 +195,22 @@
         <Label for="desa" class="text-sm font-medium text-gray-700">Desa</Label>
       </div>
       <div class="lg:col-span-4">
-        <select id="desa" class="w-full rounded border p-2" bind:value={patient.alamat_ktp.desa}>
-          <option value="" disabled selected>Pilih Desa</option>
-          <option value="Desa 1">Desa 1</option>
-          <option value="Desa 2">Desa 2</option>
-          <option value="Desa 3">Desa 3</option>
-          <!-- Add more options as needed -->
-        </select>
+        <!-- should be input instead of select -->
+        <Input
+          id="desa"
+          type="text"
+          placeholder="Desa"
+          class="col-span-3 rounded border p-2"
+          bind:value={patient.alamat_ktp.desa}
+          disabled={!patient.alamat_ktp.kecamatan}
+        />
       </div>
     </div>
 
     <h2 class="mb-4 text-lg font-semibold">Alamat Domisili</h2>
     <div class="flex items-center space-x-2">
-      <Label for="airplane-mode">Sama Dengan KTP</Label>
-      <Switch id="airplane-mode" />
+      <Label for="same-with-ktp">Sama Dengan KTP</Label>
+      <Switch id="same-with-ktp" bind:checked={patient.alamat_sama_dengan_ktp} />
     </div>
 
     <div class="grid items-center gap-4 lg:grid-cols-12">
@@ -191,11 +219,15 @@
         <Label class="text-sm font-medium text-gray-700">Provinsi</Label>
       </div>
       <div class="lg:col-span-4">
-        <select class="w-full rounded border p-2" bind:value={patient.alamat_domisili.provinsi}>
+        <select
+          class="w-full rounded border p-2"
+          bind:value={patient.alamat_domisili.provinsi}
+          disabled={patient.alamat_sama_dengan_ktp}
+        >
           <option value="" disabled selected>Pilih Provinsi</option>
-          <option value="JAWA TIMUR">JAWA TIMUR</option>
-          <option value="JAWA TENGAH">JAWA TENGAH</option>
-          <option value="JAWA BARAT">JAWA BARAT</option>
+          {#each ListRegion.province as provinsi}
+            <option value={provinsi.value}>{provinsi.label}</option>
+          {/each}
         </select>
       </div>
 
@@ -206,11 +238,15 @@
       </div>
 
       <div class="lg:col-span-4">
-        <select class="w-full rounded border p-2" bind:value={patient.alamat_domisili.kota_kab}>
+        <select
+          class="w-full rounded border p-2"
+          bind:value={patient.alamat_domisili.kota_kab}
+          disabled={patient.alamat_sama_dengan_ktp || !patient.alamat_domisili.provinsi}
+        >
           <option value="" disabled selected>Pilih Kota</option>
-          <option value="SURABAYA">SURABAYA</option>
-          <option value="SIDOARJO">SIDOARJO</option>
-          <option value="GRESIK">GRESIK</option>
+          {#each filteredRegenciesDomisili as regency}
+            <option value={regency.value}>{regency.label}</option>
+          {/each}
         </select>
       </div>
     </div>
@@ -224,12 +260,12 @@
           id="kecamatan"
           class="w-full rounded border p-2"
           bind:value={patient.alamat_domisili.kecamatan}
+          disabled={patient.alamat_sama_dengan_ktp || !patient.alamat_domisili.kota_kab}
         >
           <option value="" disabled selected>Pilih Kecamatan</option>
-          <option value="Kecamatan 1">Kecamatan 1</option>
-          <option value="Kecamatan 2">Kecamatan 2</option>
-          <option value="Kecamatan 3">Kecamatan 3</option>
-          <!-- Add more options as needed -->
+          {#each filteredCitiesDomisili as city}
+            <option value={city.value}>{city.label}</option>
+          {/each}
         </select>
       </div>
 
@@ -237,17 +273,15 @@
         <Label for="desa" class="text-sm font-medium text-gray-700">Desa</Label>
       </div>
       <div class="lg:col-span-4">
-        <select
+        <!-- should be input instead of select -->
+        <Input
           id="desa"
-          class="w-full rounded border p-2"
+          type="text"
+          placeholder="Desa"
+          class="col-span-3 rounded border p-2"
           bind:value={patient.alamat_domisili.desa}
-        >
-          <option value="" disabled selected>Pilih Desa</option>
-          <option value="Desa 1">Desa 1</option>
-          <option value="Desa 2">Desa 2</option>
-          <option value="Desa 3">Desa 3</option>
-          <!-- Add more options as needed -->
-        </select>
+          disabled={patient.alamat_sama_dengan_ktp || !patient.alamat_domisili.kecamatan}
+        />
       </div>
     </div>
 
@@ -263,16 +297,10 @@
           class="w-full rounded border p-2"
           bind:value={patient.hubungan_keluarga_terdekat}
         >
-          <option value="" disabled selected>Pilih Hubungan</option>
-          <option value="Kakek">Kakek</option>
-          <option value="Nenek">Nenek</option>
-          <option value="Ayah">Ayah</option>
-          <option value="Ibu">Ibu</option>
-          <option value="Saudara">Saudara</option>
-          <option value="Suami">Suami</option>
-          <option value="Istri">Istri</option>
-          <option value="Anak">Anak</option>
-          <option value="Cucu">Cucu</option>
+          <option value="" disabled>Pilih Hubungan</option>
+          {#each MasterData.Relationship as relationship}
+            <option value={relationship.value}>{relationship.label}</option>
+          {/each}
         </select>
       </div>
     </div>
@@ -317,16 +345,10 @@
             </Table.Cell>
             <Table.Cell>
               <select class="w-full rounded border p-2" bind:value={anggota.hubungan}>
-                <option value="" disabled selected>Pilih Hubungan</option>
-                <option value="Kakek">Kakek</option>
-                <option value="Nenek">Nenek</option>
-                <option value="Ayah">Ayah</option>
-                <option value="Ibu">Ibu</option>
-                <option value="Saudara">Saudara</option>
-                <option value="Suami">Suami</option>
-                <option value="Istri">Istri</option>
-                <option value="Anak">Anak</option>
-                <option value="Cucu">Cucu</option>
+                <option value="" disabled>Pilih Hubungan</option>
+                {#each MasterData.Relationship as relationship}
+                  <option value={relationship.value}>{relationship.label}</option>
+                {/each}
               </select>
             </Table.Cell>
             <Table.Cell class="text-right">
