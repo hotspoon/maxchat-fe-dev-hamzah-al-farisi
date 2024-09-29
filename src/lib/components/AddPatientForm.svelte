@@ -360,14 +360,16 @@
         {/each}
       </Table.Body>
     </Table.Root>
-    <Button
-      type="button"
-      on:click={addAnggotaKeluarga}
-      class="mt-2 rounded bg-sky-400 px-4 py-2 text-white hover:bg-sky-700"
-    >
-      <Plus />
-      Tambah
-    </Button>
+    {#if patient.anggota_keluarga.length < 5}
+      <Button
+        type="button"
+        on:click={addAnggotaKeluarga}
+        class="mt-2 rounded bg-sky-400 px-4 py-2 text-white hover:bg-sky-700"
+      >
+        <Plus />
+        Tambah
+      </Button>
+    {/if}
     <hr />
     <div
       class="mt-6 flex flex-col space-y-2 sm:flex-row sm:justify-center sm:space-x-2 sm:space-y-0"
