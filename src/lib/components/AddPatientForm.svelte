@@ -2,80 +2,69 @@
   import Button from '$lib/components/ui/button/button.svelte';
   import Label from '$lib/components/ui/label/label.svelte';
   import Input from '$lib/components/ui/input/input.svelte';
-  import * as Select from '$lib/components/ui/select';
+  import * as Table from '$lib/components/ui/table';
   import Switch from '$lib/components/ui/switch/switch.svelte';
-  import { ArrowLeft, Printer, Upload, Save } from 'lucide-svelte';
+  import { ArrowLeft, Printer, Upload, Save, X, Plus } from 'lucide-svelte';
 
   let patient = {
-    nama: '', // Fill in the patient's name
+    nama: '',
     tempat_lahir: '',
-    tgl_lahir: '', // Format: YYYY-MM-DD (e.g., '1990-05-15')
-
+    tgl_lahir: '',
     alamat_ktp: {
       provinsi: 'JAWA TIMUR',
-      kota_kab: '', // Fill in the city/regency
+      kota_kab: '',
       kecamatan: '',
       desa: '',
       alamat: 'JI Diponegoro Gg.III'
     },
-
     alamat_domisili: {
       provinsi: 'JAWA TIMUR',
-      kota_kab: '', // Fill in the city/regency
+      kota_kab: '',
       kecamatan: '',
       desa: '',
       alamat: 'JI Diponegoro Gg.III'
     },
-
-    // Alamat Sesuai KTP
     provinsi_ktp: 'JAWA TIMUR',
-    kota_kab_ktp: '', // Fill in the city/regency
+    kota_kab_ktp: '',
     kecamatan_ktp: '',
     desa_ktp: '',
-
-    // Alamat Domisili
     alamat_sama_dengan_ktp: true,
-    // If alamat_sama_dengan_ktp is false, fill in these fields:
-    // provinsi_domisili: '',
-    // kota_kab_domisili: '',
-    // kecamatan_domisili: '',
-    // desa_domisili: '',
-    // alamat_domisili: '',
-
-    // Anggota Keluarga Terdekat
     hubungan_keluarga_terdekat: 'Kakek',
     nama_keluarga_terdekat: '',
-
-    // Anggota Keluarga Lainnya
     anggota_keluarga: [
-      // { nama: '', hubungan: '' }, // Uncomment and add more objects if needed
-      // { nama: '', hubungan: '' }
+      { nama: 'Faris', hubungan: 'Saudara' },
+      { nama: 'Hamzah', hubungan: 'Kakek' }
     ]
   };
 
   function handleSubmit() {
-    // Handle form submission logic here
     console.log('Patient data:', patient);
   }
 
   function handleBack() {
-    // Handle back button logic here
     console.log('Kembali button clicked');
   }
 
   function handlePrint() {
-    // Handle print button logic here
     console.log('Cetak Berkas button clicked');
   }
 
   function handleUpload() {
-    // Handle upload button logic here
     console.log('Upload Berkas button clicked');
   }
 
   function handleSave() {
-    // Handle save button logic here
     console.log('Simpan button clicked');
+  }
+
+  function addAnggotaKeluarga() {
+    if (patient.anggota_keluarga.length < 5) {
+      patient.anggota_keluarga = [...patient.anggota_keluarga, { nama: '', hubungan: '' }];
+    }
+  }
+
+  function removeAnggotaKeluarga(index: number) {
+    patient.anggota_keluarga = patient.anggota_keluarga.filter((_, i) => i !== index);
   }
 </script>
 
@@ -304,17 +293,73 @@
     </div>
 
     <h2 class="mb-4 text-lg font-semibold">Anggota Keluarga Lainnya</h2>
+
+    <Table.Root>
+      <Table.Header>
+        <Table.Row>
+          <Table.Head>Urut</Table.Head>
+          <Table.Head>Nama</Table.Head>
+          <Table.Head>Hubungan</Table.Head>
+          <Table.Head>Aksi</Table.Head>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        {#each patient.anggota_keluarga as anggota, index}
+          <Table.Row class="whitespace-nowrap">
+            <Table.Cell>{index + 1}</Table.Cell>
+            <Table.Cell class="font-medium">
+              <Input
+                type="text"
+                placeholder="Nama"
+                class="rounded border p-2"
+                bind:value={anggota.nama}
+              />
+            </Table.Cell>
+            <Table.Cell>
+              <select class="w-full rounded border p-2" bind:value={anggota.hubungan}>
+                <option value="" disabled selected>Pilih Hubungan</option>
+                <option value="Kakek">Kakek</option>
+                <option value="Nenek">Nenek</option>
+                <option value="Ayah">Ayah</option>
+                <option value="Ibu">Ibu</option>
+                <option value="Saudara">Saudara</option>
+                <option value="Suami">Suami</option>
+                <option value="Istri">Istri</option>
+                <option value="Anak">Anak</option>
+                <option value="Cucu">Cucu</option>
+              </select>
+            </Table.Cell>
+            <Table.Cell class="text-right">
+              <Button type="button" on:click={() => removeAnggotaKeluarga(index)} variant="link">
+                <X class="text-red-500" />
+              </Button>
+            </Table.Cell>
+          </Table.Row>
+        {/each}
+      </Table.Body>
+    </Table.Root>
+    <Button
+      type="button"
+      on:click={addAnggotaKeluarga}
+      class="mt-2 rounded bg-sky-400 px-4 py-2 text-white hover:bg-sky-700"
+    >
+      <Plus />
+      Tambah
+    </Button>
+    <hr />
     <div
       class="mt-6 flex flex-col space-y-2 sm:flex-row sm:justify-center sm:space-x-2 sm:space-y-0"
     >
-      <Button type="button" on:click={handleBack} variant="secondary" class="rounded px-6 py-2">
-        <ArrowLeft />
-        Kembali
-      </Button>
+      <a href="/">
+        <Button type="button" on:click={handleBack} variant="secondary" class="rounded px-6 py-2">
+          <ArrowLeft />
+          Kembali
+        </Button>
+      </a>
       <Button
         type="button"
         on:click={handlePrint}
-        class="rounded bg-sky-400 px-6 py-2 text-white hover:bg-sky-700"
+        class="rounded bg-[#00b5c1] px-6 py-2 text-white hover:bg-sky-700"
       >
         <Printer />
         Cetak Berkas
@@ -322,7 +367,7 @@
       <Button
         type="button"
         on:click={handleUpload}
-        class="rounded bg-sky-400 px-6 py-2 text-white hover:bg-sky-700"
+        class="rounded bg-[#00b5c1] px-6 py-2 text-white hover:bg-sky-700"
       >
         <Upload />
         Upload Berkas
