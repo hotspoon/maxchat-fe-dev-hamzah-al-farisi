@@ -366,7 +366,7 @@
         on:click={addAnggotaKeluarga}
         class="mt-2 rounded bg-sky-400 px-4 py-2 text-white hover:bg-sky-700"
       >
-        <Plus />
+        <Plus class="mr-2" />
         Tambah
       </Button>
     {/if}
@@ -376,7 +376,7 @@
     >
       <a href="/">
         <Button type="button" on:click={handleBack} variant="secondary" class="rounded px-6 py-2">
-          <ArrowLeft />
+          <ArrowLeft class="mr-2" />
           Kembali
         </Button>
       </a>
@@ -385,7 +385,7 @@
         on:click={handlePrint}
         class="rounded bg-[#00b5c1] px-6 py-2 text-white hover:bg-sky-700"
       >
-        <Printer />
+        <Printer class="mr-2" />
         Cetak Berkas
       </Button>
       <Button
@@ -393,7 +393,7 @@
         on:click={handleUpload}
         class="rounded bg-[#00b5c1] px-6 py-2 text-white hover:bg-sky-700"
       >
-        <Upload />
+        <Upload class="mr-2" />
         Upload Berkas
       </Button>
       <Button
@@ -401,7 +401,7 @@
         on:click={handleSave}
         class="rounded bg-sky-400 px-6 py-2 text-white hover:bg-sky-700"
       >
-        <Save />
+        <Save class="mr-2" />
         Simpan
       </Button>
     </div>
